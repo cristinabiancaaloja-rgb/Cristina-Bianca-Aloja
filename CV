@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Salesforce & Certinia Implementation Consultant</title>
+  <meta name="description" content="Salesforce & Certinia Implementation Consultant specializing in custom Salesforce, Certinia, and Conga solutions. Expert in implementations, architecture, and automation." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Your Name — Salesforce & Certinia Implementation Consultant" />
+  <meta property="og:description" content="Implementation Consultant for Salesforce, Certinia & Conga. Portfolio, experience, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com" />
+  <meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
+  <!-- Schema.org Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Your Name",
+    "jobTitle": "Salesforce & Certinia Implementation Consultant",
+    "email": "mailto:you@example.com",
+    "url": "https://yourdomain.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/yourhandle",
+      "https://github.com/yourhandle"
+    ],
+    "worksFor": { "@type": "Organization", "name": "Your Company" },
+    "knowsAbout": ["Salesforce", "Certinia", "Conga", "LWC", "Flows", "Integrations", "Apex", "SOQL"]
+  }
+  </script>
+  <style>
+    /* ===== CSS Reset (trimmed) ===== */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;line-height:1.6;-webkit-font-smoothing:antialiased;}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+
+    /* ===== Theme ===== */
+    :root{
+      --bg: #0b1220;         /* Deep navy */
+      --panel: #0f172a;      /* Slate-900 */
+      --text: #e5e7eb;       /* Zinc-200 */
+      --muted:#94a3b8;       /* Slate-400 */
+      --brand:#0ea5e9;       /* Sky-500 */
+      --accent:#22d3ee;      /* Cyan-400 */
+      --card:#111827;        /* Gray-900 */
+      --ring: rgba(14,165,233,.4);
+      --shadow: 0 10px 30px rgba(2,8,23,.5);
+    }
+    [data-theme="light"]{
+      --bg:#f8fafc;        /* Slate-50 */
+      --panel:#ffffff;
+      --text:#0f172a;      /* Slate-900 */
+      --muted:#475569;     /* Slate-600 */
+      --brand:#0284c7;     /* Sky-600 */
+      --accent:#0891b2;    /* Cyan-600 */
+      --card:#ffffff;
+      --ring: rgba(2,132,199,.25);
+      --shadow: 0 10px 30px rgba(2,6,23,.08);
+    }
+    @media (prefers-color-scheme: light){
+      :root{color-scheme: light dark}
+    }
+
+    /* ===== Layout ===== */
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(34,211,238,.12), transparent 60%),
+                  radial-gradient(1000px 700px at 110% 10%, rgba(14,165,233,.12), transparent 50%),
+                  var(--bg);
+      color: var(--text);
+    }
+    .wrap{max-width:1040px;margin:0 auto;padding:32px 20px}
+    .hero{
+      position:relative;
+      display:grid;gap:24px;
+      grid-template-columns: 1fr;align-items:center;
+      padding:28px;border-radius:24px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      box-shadow: var(--shadow);
+      border:1px solid rgba(148,163,184,.15);
+    }
+    @media (min-width: 880px){
+      .hero{grid-template-columns: 1.2fr .8fr}
+    }
+
+    .title{font-size:clamp(28px, 3.2vw, 40px);line-height:1.1;margin:0}
+    .subtitle{margin:6px 0 0;color:var(--muted);font-size:clamp(16px, 2vw, 18px)}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;margin:6px 6px 0 0;
+      background: linear-gradient(180deg, rgba(2,6,23,.35), rgba(2,6,23,.15));
+      border:1px solid rgba(148,163,184,.15);border-radius:999px;font-size:14px;color:var(--text)
+    }
+    .badge{background:rgba(14,165,233,.15);border-color:rgba(14,165,233,.25)}
+
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;
+      border:1px solid rgba(148,163,184,.2);background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      text-decoration:none;font-weight:600;box-shadow: var(--shadow);transition: transform .08s ease, border-color .2s ease;
+    }
+    .btn:focus{outline:none;box-shadow:0 0 0 4px var(--ring)}
+    .btn:hover{transform: translateY(-1px)}
+    .btn.primary{background:linear-gradient(180deg, rgba(14,165,233,.25), rgba(14,165,233,.15));border-color:rgba(14,165,233,.45)}
+    .btn.ghost{background:transparent}
+
+    .grid{display:grid;gap:20px;margin-top:24px}
+    @media (min-width: 900px){
+      .grid{grid-template-columns: 1fr 1fr}
+    }
+
+    .card{background:var(--card);border:1px solid rgba(148,163,184,.18);border-radius:18px;padding:20px;box-shadow: var(--shadow)}
+    .card h3{margin:0 0 10px;font-size:20px}
+    .card p{margin:6px 0 0;color:var(--muted)}
+
+    .section{margin-top:28px}
+    .section h2{margin:0 0 10px;font-size:22px}
+
+    .list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+    .item{display:grid;gap:4px}
+    .item .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .item .role{font-weight:700}
+    .item .meta{color:var(--muted);font-size:14px}
+    .item ul{margin:6px 0 0 18px}
+
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+
+    .footer{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:26px;color:var(--muted);font-size:14px}
+
+    .right-col .card + .card{margin-top:16px}
+
+    .avatar{width:140px;height:140px;border-radius:20px;overflow:hidden;border:2px solid rgba(148,163,184,.2);box-shadow: var(--shadow)}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+
+    .switch{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
+    .switch input{appearance:none;width:42px;height:24px;border-radius:999px;background:rgba(148,163,184,.35);position:relative;outline:none;cursor:pointer}
+    .switch input:before{content:"";position:absolute;inset:4px auto 4px 4px;width:16px;height:16px;border-radius:50%;background:#fff;transition:all .2s ease}
+    .switch input:checked{background:rgba(14,165,233,.65)}
+    .switch input:checked:before{left:22px}
+
+    /* Print */
+    @media print{
+      body{background:#fff;color:#111}
+      .hero,.card{box-shadow:none;border-color:#ddd}
+      .btn,.switch{display:none !important}
+      .wrap{padding:0}
+      a{color:#111}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="top">
+    <div class="hero">
+      <div>
+        <h1 class="title">Your Name</h1>
+        <p class="subtitle">Salesforce & Certinia Implementation Consultant · Conga · Integrations · Automation</p>
+        <div class="skills" aria-label="Highlights">
+          <span class="pill badge">Salesforce (Admin, Flows, LWC)</span>
+          <span class="pill">Certinia (PSA, ERP)</span>
+          <span class="pill">Conga (Composer/CPQ)</span>
+          <span class="pill">Architecting & Data Modeling</span>
+          <span class="pill">API & Integration</span>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="mailto:you@example.com" aria-label="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6"/></svg>
+            Email me
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/yourhandle" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9v10" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="6" r="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M10 19v-6a4 4 0 1 1 8 0v6" stroke="currentColor" stroke-width="1.6"/></svg>
+            LinkedIn
+          </a>
+          <a class="btn ghost" href="https://github.com/yourhandle" target="_blank" rel="noreferrer noopener" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12a10 10 0 0 0 6.8 9.5c.5.1.7-.2.7-.5v-2c-2.8.6-3.4-1.3-3.4-1.3-.5-1.1-1.2-1.4-1.2-1.4-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1.9-.7 2.9-.8 0-.7.3-1.2.6-1.5-2.2-.2-4.5-1.1-4.5-4.9 0-1.1.4-2 1-2.8-.1-.2-.4-1.2.1-2.5 0 0 .8-.3 2.8 1 .8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c2-1.3 2.8-1 2.8-1 .5 1.3.2 2.3.1 2.5.6.8 1 1.7 1 2.8 0 3.8-2.3 4.7-4.5 4.9.3.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 22 12c0-5.5-4.5-10-10-10z" stroke="currentColor" stroke-width="1"/></svg>
+            GitHub
+          </a>
+          <button class="btn" onclick="window.print()" aria-label="Download PDF">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9V3h12v6M6 15h12v6H6z" stroke="currentColor" stroke-width="1.6"/><path d="M8 15v-2a4 4 0 1 1 8 0v2" stroke="currentColor" stroke-width="1.6"/></svg>
+            Download PDF
+          </button>
+          <label class="switch" title="Toggle light/dark theme">
+            <span>Theme</span>
+            <input id="themeToggle" type="checkbox" aria-label="Toggle theme" />
+          </label>
+        </div>
+      </div>
+      <div class="right-col">
+        <div class="avatar" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Profile photo placeholder" />
+        </div>
+        <div class="card" style="margin-top:16px">
+          <h3>Contact</h3>
+          <p><strong>Location:</strong> Switzerland · Open to remote/onsite</p>
+          <p><strong>Email:</strong> <a href="mailto:you@example.com">you@example.com</a></p>
+          <p><strong>Phone:</strong> +41 00 000 00 00</p>
+          <p><strong>Website:</strong> <a href="https://yourdomain.com" target="_blank" rel="noreferrer noopener">yourdomain.com</a></p>
+        </div>
+        <div class="card">
+          <h3>Certifications</h3>
+          <ul class="list">
+            <li class="item"><span class="role">Certinia Implementation Consultant</span><span class="meta">2025</span></li>
+            <li class="item"><span class="role">Salesforce Administrator (ADM‑201)</span><span class="meta">Year</span></li>
+            <li class="item"><span class="role">Conga Composer</span><span class="meta">Year</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core Skills</h3>
+          <div class="skills">
+            <span class="pill">Salesforce Admin</span>
+            <span class="pill">Flows & Orchestration</span>
+            <span class="pill">LWC / Apex</span>
+            <span class="pill">Data Modeling</span>
+            <span class="pill">Integrations (REST/SOAP)</span>
+            <span class="pill">Certinia PSA/ERP</span>
+            <span class="pill">Conga CPQ/Composer</span>
+            <span class="pill">Change Sets / DevOps</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Languages</h3>
+          <p>English (Proficient) · German (Studying) · Romanian (Native)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid section" role="region" aria-label="Main content">
+      <section class="card" aria-labelledby="about">
+        <h2 id="about">About</h2>
+        <p>
+          Senior Salesforce & Certinia Implementation Consultant specializing in custom solutions across Sales, Service, and FinancialForce (Certinia) PSA/ERP. I design robust data models, automate complex processes with Flows and Apex, and ship integrations that keep orgs clean, fast, and auditable. I thrive on bringing clarity to messy requirements and delivering outcomes that stick.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="projects">
+        <h2 id="projects">Selected Projects</h2>
+        <ul class="list">
+          <li class="item">
+            <div class="top"><span class="role">Org Documentation Assistant</span><span class="meta">2025 · LWC + Metadata API</span></div>
+            <p>Automated discovery of flows, integrations, custom fields/objects; exports human‑readable documentation for auditors and architects.</p>
+          </li>
+          <li class="item">
+            <div class="top"><span class="role">PSA Implementation at Mid‑Market Consultancy</span><span class="meta">2024 · Certinia</span></div>
+            <p>Rolled out Projects, Resources, Billing; built approval flows and Conga templates; reduced cycle time from quote‑to‑cash by 28%.</p>
+          </li>
+          <li class="item">
+            <div class="top"><span class="role">CPQ & Document Automation</span><span class="meta">2023 · Conga</span></div>
+            <p>Dynamic pricing rules + Composer templates with conditional content; eliminated manual formatting and cut errors significantly.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="experience">
+        <h2 id="experience">Experience</h2>
+        <ul class="list">
+          <li class="item">
+            <div class="top"><span class="role">Senior Implementation Consultant</span><span class="meta">Your Company · 2023 — Present · Switzerland</span></div>
+            <ul>
+              <li>Lead end‑to‑end Salesforce & Certinia implementations: discovery → build → UAT → go‑live → hypercare.</li>
+              <li>Architect data model, security (RBAC, sharing), and automation patterns with resilience and testability.</li>
+              <li>Coach admins and power users; establish build standards and documentation practices.</li>
+            </ul>
+          </li>
+          <li class="item">
+            <div class="top"><span class="role">Salesforce Consultant</span><span class="meta">Consulting Firm · 2020 — 2023</span></div>
+            <ul>
+              <li>Delivered 15+ projects across Sales Cloud, Service Cloud, and integrations with ERP and billing stacks.</li>
+              <li>Introduced flow-first approach and CI discipline; lowered deployment defects by 40%.</li>
+            </ul>
+          </li>
+          <li class="item">
+            <div class="top"><span class="role">Admin / Analyst</span><span class="meta">In‑house · 2018 — 2020</span></div>
+            <ul>
+              <li>Owned backlog grooming, declarative build, and stakeholder training for a 200‑user org.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="education">
+        <h2 id="education">Education</h2>
+        <ul class="list">
+          <li class="item">
+            <div class="top"><span class="role">B.Sc. / M.Sc. — Field</span><span class="meta">University · Year</span></div>
+            <p>Relevant coursework: Information Systems, Data Modeling, Cloud Platforms.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="extras">
+        <h2 id="extras">Extras</h2>
+        <p>Hiking & endurance sports · Writing clean runbooks · Mentoring junior admins · Speaking at local SFDC user groups.</p>
+      </section>
+
+      <section class="card" aria-labelledby="contact">
+        <h2 id="contact">Contact</h2>
+        <p>Best way to reach me is email. I’m open to Salesforce/Certinia Implementation roles in Switzerland and remote across Europe.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:you@example.com">you@example.com</a>
+          <a class="btn" href="#top">Back to top</a>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">
+      <span>© <span id="year"></span> Your Name</span>
+      <span>Last updated: <span id="updated"></span></span>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle with persistence
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if(saved){
+      if(saved === 'light') root.setAttribute('data-theme','light');
+      toggle.checked = saved === 'dark' ? true : false; // default dark; checked means dark
+    } else {
+      // default dark theme
+      toggle.checked = true;
+    }
+    toggle.addEventListener('change', () => {
+      if(toggle.checked){
+        root.removeAttribute('data-theme');
+        localStorage.setItem('theme','dark');
+      } else {
+        root.setAttribute('data-theme','light');
+        localStorage.setItem('theme','light');
+      }
+    });
+
+    // Footer dates
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('updated').textContent = new Date().toLocaleDateString(undefined, {year:'numeric', month:'short', day:'2-digit'});
+  </script>
+</body>
+</html>
